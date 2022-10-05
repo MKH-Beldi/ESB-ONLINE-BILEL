@@ -218,14 +218,14 @@
                    
                     CssClass="form-control">
                  <asp:ListItem Value="0">Choisir une séance</asp:ListItem>
-                   <asp:ListItem Value="1">1: 8h:30 à 9h:40</asp:ListItem>
-                    <asp:ListItem Value="2">2: 9h:50 à 11h:00</asp:ListItem>
-                    <asp:ListItem Value="3">3: 11h:10 à 12h:20</asp:ListItem>
-                    <asp:ListItem Value="4">4: 12h:30 à 13h:40</asp:ListItem>
-                    <asp:ListItem Value="5">5: 13h:50 à 15h:00</asp:ListItem>
-                    <asp:ListItem Value="6">6: 15h:10 à 16h:20</asp:ListItem>
-                    <asp:ListItem Value="7">7: 16h:30 à 17h:40</asp:ListItem>
-                    <asp:ListItem Value="8">8: 18h:30 à 20h:30</asp:ListItem>
+                   <asp:ListItem Value="1">1:  8h:30 à 9h:50</asp:ListItem>
+                    <asp:ListItem Value="2">2: 10h:00 à 11h:20</asp:ListItem>
+                    <asp:ListItem Value="3">3: 11h:30 à 12h:50</asp:ListItem>
+                    <asp:ListItem Value="4">4: 13h:00 à 14h:20</asp:ListItem>
+                    <asp:ListItem Value="5">5: 14h:30 à 15h:50</asp:ListItem>
+                    <asp:ListItem Value="6">6: 16h:00 à 17h:20</asp:ListItem>
+                    <asp:ListItem Value="7">7: 18h:30 à 20h:30</asp:ListItem>
+                   <%-- <asp:ListItem Value="8">8: 18h:30 à 20h:30</asp:ListItem>--%>
                 </asp:DropDownList>
             </td>
             <td class="style13">
