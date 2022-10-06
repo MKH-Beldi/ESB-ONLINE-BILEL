@@ -544,24 +544,24 @@ namespace DAL
 
         public string Get_Value_lockedfROMESB(string id_et)
         {
-            string lib = "";
+            string lib = "0";
 
-            using (SqlConnection mySqlConnection = new SqlConnection(AppConfiguration.ConnectionStringsolde))
-            {
-                mySqlConnection.Open();
+            //using (SqlConnection mySqlConnection = new SqlConnection(AppConfiguration.ConnectionStringsolde))
+            //{
+            //    mySqlConnection.Open();
 
 
-                //  string cmdQuery = "SELECT sum(Amount) FROM[ESPRIT_NAV_PROD].[dbo].[Esprit$G_L Entry] where[Source No_] ='" + source_num + "'" [Posting Date] like '%" + annee + "%' and;
+            //    //  string cmdQuery = "SELECT sum(Amount) FROM[ESPRIT_NAV_PROD].[dbo].[Esprit$G_L Entry] where[Source No_] ='" + source_num + "'" [Posting Date] like '%" + annee + "%' and;
 
-                string cmdQuery = "SELECT Locked  FROM[ESPRIT_NAV_PROD].[dbo].[ESB$My Customer] where[Id_Et] ='" + id_et + "' ";
+            //    string cmdQuery = "SELECT Locked  FROM[ESPRIT_NAV_PROD].[dbo].[ESB$My Customer] where[Id_Et] ='" + id_et + "' ";
 
-              //  string cmdQuery = "SELECT [ESPRIT_NAV_PROD].[dbo].[Esprit$My Customer].[Locked] c_locked_esp,  [ESPRIT_NAV_PROD].[dbo].[ESB$My Customer].[Locked] c_locked_esb FROM[ESPRIT_NAV_PROD].[dbo].[Esprit$My Customer]  ,[ESPRIT_NAV_PROD].[dbo].[ESB$My Customer]  where [ESPRIT_NAV_PROD].[dbo].[Esprit$My Customer].[Id_Et]= [ESPRIT_NAV_PROD].[dbo].[ESB$My Customer].[Id_Et] and [ESPRIT_NAV_PROD].[dbo].[Esprit$My Customer].[Id_Et] ='" + id_et + "'", con);
-                SqlCommand myCommand = new SqlCommand(cmdQuery);
-                myCommand.Connection = mySqlConnection;
-                myCommand.CommandType = CommandType.Text;
-                lib = myCommand.ExecuteScalar().ToString();
-                mySqlConnection.Close();
-            }
+            //  //  string cmdQuery = "SELECT [ESPRIT_NAV_PROD].[dbo].[Esprit$My Customer].[Locked] c_locked_esp,  [ESPRIT_NAV_PROD].[dbo].[ESB$My Customer].[Locked] c_locked_esb FROM[ESPRIT_NAV_PROD].[dbo].[Esprit$My Customer]  ,[ESPRIT_NAV_PROD].[dbo].[ESB$My Customer]  where [ESPRIT_NAV_PROD].[dbo].[Esprit$My Customer].[Id_Et]= [ESPRIT_NAV_PROD].[dbo].[ESB$My Customer].[Id_Et] and [ESPRIT_NAV_PROD].[dbo].[Esprit$My Customer].[Id_Et] ='" + id_et + "'", con);
+            //    SqlCommand myCommand = new SqlCommand(cmdQuery);
+            //    myCommand.Connection = mySqlConnection;
+            //    myCommand.CommandType = CommandType.Text;
+            //    lib = myCommand.ExecuteScalar().ToString();
+            //    mySqlConnection.Close();
+            //}
             return lib;
         }
         public string Get_Value_lockedfROMESBynumcpt(string numcpt)
