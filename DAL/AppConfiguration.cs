@@ -30,7 +30,15 @@ namespace admiss
                 return ConfigurationManager.ConnectionStrings["ConnectionString5"].ConnectionString;
             }
         }
-
+        //
+        public static String myConnectionString
+        {
+            get
+            {
+                return ConfigurationManager.ConnectionStrings["ConnectionString2"].ConnectionString;
+            }
+        }
+        //
         public static String ConnectionStringsolde
         {
             get
