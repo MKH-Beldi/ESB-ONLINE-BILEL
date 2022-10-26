@@ -25,6 +25,8 @@ ESBOnline/bin/PlanEtude.dll
 ESBOnline/bin/Encadrement.dll
 ESBOnline/bin/ESPOnline.dll
 ESBOnline/bin/ESPOnline.dll.config
+ESBOnline/bin/ESBOnline.dll
+ESBOnline/bin/ESBOnline.dll.config
 ESBOnline/bin/BLL.dll
 ESBOnline/bin/ClassLibrary1.dll
 ESBOnline/bin/DAL.dll
@@ -32,6 +34,9 @@ ESBOnline/bin/DAL.dll
 PlanEtude/bin/Debug/DAL.dll
 PlanEtude/bin/Debug/Encadrement.dll
 PlanEtude/bin/Debug/PlanEtude.dll
+PlanEtude/bin/Release/DAL.dll
+PlanEtude/bin/Release/Encadrement.dll
+PlanEtude/bin/Release/PlanEtude.dll
 
 # User-specific files
 *.suo
