@@ -11,8 +11,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ESPOnline</RootNamespace>
-    <AssemblyName>ESPOnline</AssemblyName>
+    <RootNamespace>ESBOnline</RootNamespace>
+    <AssemblyName>ESBOnline</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <FileUpgradeFlags>
@@ -1256,7 +1256,6 @@
     <Content Include="Enseignants\SuiviEvaluation.aspx" />
     <Content Include="Enseignants\SuiviGroupe.aspx" />
     <Content Include="Enseignants\Toeic_enseig.aspx" />
-    <Content Include="ESPOnline.csproj.user" />
     <Content Include="Etudiants\absenceetud.aspx" />
     <Content Include="Etudiants\Accueil.aspx" />
     <Content Include="Etudiants\CCNA1.aspx" />
@@ -3837,7 +3836,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
+      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
