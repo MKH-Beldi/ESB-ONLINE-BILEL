@@ -1,0 +1,296 @@
+diff --git a/.gitignore b/.gitignore
+index 04aa858..71bb326 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -3,10 +3,8 @@
+ 
+ BLL/bin/Debug/BLL.dll
+ BLL/bin/Debug/DAL.dll
+-BLL/bin/Debug/DAL.dll.config
+ BLL/bin/Release/BLL.dll
+ BLL/bin/Release/DAL.dll
+-BLL/bin/Release/DAL.dll.config
+ 
+ ClassLibrary1/bin/Debug/ClassLibrary1.dll
+ ClassLibrary1/bin/Debug/ClassLibrary1.dll.config
+@@ -19,32 +17,21 @@ DAL/bin/Release/DAL.dll
+ DAL/bin/Release/DAL.dll.config
+ 
+ Encadrement/bin/Debug/DAL.dll
+-Encadrement/bin/Debug/DAL.dll.config
+ Encadrement/bin/Debug/Encadrement.dll
+ Encadrement/bin/Release/DAL.dll
+-Encadrement/bin/Release/DAL.dll.config
+ Encadrement/bin/Release/Encadrement.dll
+ 
+ ESBOnline/bin/PlanEtude.dll
+ ESBOnline/bin/Encadrement.dll
+ ESBOnline/bin/ESPOnline.dll
+ ESBOnline/bin/ESPOnline.dll.config
+-ESBOnline/bin/ESBOnline.dll
+-ESBOnline/bin/ESBOnline.dll.config
+ ESBOnline/bin/BLL.dll
+ ESBOnline/bin/ClassLibrary1.dll
+-ESBOnline/bin/ClassLibrary1.dll.config
+ ESBOnline/bin/DAL.dll
+-ESBOnline/bin/DAL.dll.config
+ 
+ PlanEtude/bin/Debug/DAL.dll
+-PlanEtude/bin/Debug/DAL.dll.config
+ PlanEtude/bin/Debug/Encadrement.dll
+ PlanEtude/bin/Debug/PlanEtude.dll
+-PlanEtude/bin/Release/DAL.dll
+-PlanEtude/bin/Release/DAL.dll.config
+-PlanEtude/bin/Release/Encadrement.dll
+-PlanEtude/bin/Release/PlanEtude.dll
+ 
+ # User-specific files
+ *.suo
+diff --git a/BLL/bin/Release/Oracle.ManagedDataAccess.dll b/BLL/bin/Release/Oracle.ManagedDataAccess.dll
+deleted file mode 100644
+index 8cf6d1e..0000000
+Binary files a/BLL/bin/Release/Oracle.ManagedDataAccess.dll and /dev/null differ
+diff --git a/ClassLibrary1/bin/Release/MySql.Data.dll b/ClassLibrary1/bin/Release/MySql.Data.dll
+deleted file mode 100644
+index 42e4eae..0000000
+Binary files a/ClassLibrary1/bin/Release/MySql.Data.dll and /dev/null differ
+diff --git a/DAL/Admission.cs b/DAL/Admission.cs
+index ab03a64..8272ac4 100644
+--- a/DAL/Admission.cs
++++ b/DAL/Admission.cs
+@@ -12,15 +12,13 @@ namespace DAL
+     public class Admission
+     {
+         #region sing
+-        //OracleConnection mySqlConnection = new OracleConnection("DATA SOURCE= 192.168.0.225:1521/bdesb10g;PERSIST SECURITY INFO=True;USER ID=SCOESB03;PASSWORD=Esp#hnrs#tbl21");
+-        //OracleConnection mySqlConnection2 = new OracleConnection("DATA SOURCE= 192.168.0.225:1521/bdesb10g;PERSIST SECURITY INFO=True;USER ID=admis_esb;PASSWORD=admis1718");
+-        OracleConnection mySqlConnection = new OracleConnection(AppConfiguration.ConnectionString2);
+-        OracleConnection mySqlConnection2 = new OracleConnection(AppConfiguration.myConnectionString);
++        OracleConnection mySqlConnection = new OracleConnection("DATA SOURCE= 192.168.0.225:1521/bdesb10g;PERSIST SECURITY INFO=True;USER ID=SCOESB03;PASSWORD=Esp#hnrs#tbl21");
++        OracleConnection mySqlConnection2 = new OracleConnection("DATA SOURCE= 192.168.0.225:1521/bdesb10g;PERSIST SECURITY INFO=True;USER ID=admis_esb;PASSWORD=admis1718");
+         OracleTransaction myTrans;
+ 
+         public void openconntrans()
+         {
+-            mySqlConnection.Open(); 
++            mySqlConnection.Open();
+             myTrans = mySqlConnection.BeginTransaction();
+ 
+         }
+diff --git a/DAL/AppConfiguration.cs b/DAL/AppConfiguration.cs
+index 021b488..a07301e 100644
+--- a/DAL/AppConfiguration.cs
++++ b/DAL/AppConfiguration.cs
+@@ -30,15 +30,7 @@ namespace admiss
+                 return ConfigurationManager.ConnectionStrings["ConnectionString5"].ConnectionString;
+             }
+         }
+-        //
+-        public static String myConnectionString
+-        {
+-            get
+-            {
+-                return ConfigurationManager.ConnectionStrings["ConnectionString2"].ConnectionString;
+-            }
+-        }
+-        //
++
+         public static String ConnectionStringsolde
+         {
+             get
+diff --git a/DAL/EncadDAO.cs b/DAL/EncadDAO.cs
+index ce4c0e1..e51912d 100644
+--- a/DAL/EncadDAO.cs
++++ b/DAL/EncadDAO.cs
+@@ -544,24 +544,24 @@ namespace DAL
+ 
+         public string Get_Value_lockedfROMESB(string id_et)
+         {
+-            string lib = "0";
++            string lib = "";
+ 
+-            //using (SqlConnection mySqlConnection = new SqlConnection(AppConfiguration.ConnectionStringsolde))
+-            //{
+-            //    mySqlConnection.Open();
++            using (SqlConnection mySqlConnection = new SqlConnection(AppConfiguration.ConnectionStringsolde))
++            {
++                mySqlConnection.Open();
+ 
+ 
+-            //    //  string cmdQuery = "SELECT sum(Amount) FROM[ESPRIT_NAV_PROD].[dbo].[Esprit$G_L Entry] where[Source No_] ='" + source_num + "'" [Posting Date] like '%" + annee + "%' and;
++                //  string cmdQuery = "SELECT sum(Amount) FROM[ESPRIT_NAV_PROD].[dbo].[Esprit$G_L Entry] where[Source No_] ='" + source_num + "'" [Posting Date] like '%" + annee + "%' and;
+ 
+-            //    string cmdQuery = "SELECT Locked  FROM[ESPRIT_NAV_PROD].[dbo].[ESB$My Customer] where[Id_Et] ='" + id_et + "' ";
++                string cmdQuery = "SELECT Locked  FROM[ESPRIT_NAV_PROD].[dbo].[ESB$My Customer] where[Id_Et] ='" + id_et + "' ";
+ 
+-            //  //  string cmdQuery = "SELECT [ESPRIT_NAV_PROD].[dbo].[Esprit$My Customer].[Locked] c_locked_esp,  [ESPRIT_NAV_PROD].[dbo].[ESB$My Customer].[Locked] c_locked_esb FROM[ESPRIT_NAV_PROD].[dbo].[Esprit$My Customer]  ,[ESPRIT_NAV_PROD].[dbo].[ESB$My Customer]  where [ESPRIT_NAV_PROD].[dbo].[Esprit$My Customer].[Id_Et]= [ESPRIT_NAV_PROD].[dbo].[ESB$My Customer].[Id_Et] and [ESPRIT_NAV_PROD].[dbo].[Esprit$My Customer].[Id_Et] ='" + id_et + "'", con);
+-            //    SqlCommand myCommand = new SqlCommand(cmdQuery);
+-            //    myCommand.Connection = mySqlConnection;
+-            //    myCommand.CommandType = CommandType.Text;
+-            //    lib = myCommand.ExecuteScalar().ToString();
+-            //    mySqlConnection.Close();
+-            //}
++              //  string cmdQuery = "SELECT [ESPRIT_NAV_PROD].[dbo].[Esprit$My Customer].[Locked] c_locked_esp,  [ESPRIT_NAV_PROD].[dbo].[ESB$My Customer].[Locked] c_locked_esb FROM[ESPRIT_NAV_PROD].[dbo].[Esprit$My Customer]  ,[ESPRIT_NAV_PROD].[dbo].[ESB$My Customer]  where [ESPRIT_NAV_PROD].[dbo].[Esprit$My Customer].[Id_Et]= [ESPRIT_NAV_PROD].[dbo].[ESB$My Customer].[Id_Et] and [ESPRIT_NAV_PROD].[dbo].[Esprit$My Customer].[Id_Et] ='" + id_et + "'", con);
++                SqlCommand myCommand = new SqlCommand(cmdQuery);
++                myCommand.Connection = mySqlConnection;
++                myCommand.CommandType = CommandType.Text;
++                lib = myCommand.ExecuteScalar().ToString();
++                mySqlConnection.Close();
++            }
+             return lib;
+         }
+         public string Get_Value_lockedfROMESBynumcpt(string numcpt)
+diff --git a/ESBOnline/DevOne/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache b/ESBOnline/DevOne/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+deleted file mode 100644
+index afa35c4..0000000
+Binary files a/ESBOnline/DevOne/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache and /dev/null differ
+diff --git a/ESBOnline/DevOne/obj/Debug/DevOne.pdb b/ESBOnline/DevOne/obj/Debug/DevOne.pdb
+deleted file mode 100644
+index 93bfce9..0000000
+Binary files a/ESBOnline/DevOne/obj/Debug/DevOne.pdb and /dev/null differ
+diff --git a/ESBOnline/ESBOnline.csproj b/ESBOnline/ESBOnline.csproj
+index e3ea771..6633799 100644
+--- a/ESBOnline/ESBOnline.csproj
++++ b/ESBOnline/ESBOnline.csproj
+@@ -11,8 +11,8 @@
+     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+     <OutputType>Library</OutputType>
+     <AppDesignerFolder>Properties</AppDesignerFolder>
+-    <RootNamespace>ESBOnline</RootNamespace>
+-    <AssemblyName>ESBOnline</AssemblyName>
++    <RootNamespace>ESPOnline</RootNamespace>
++    <AssemblyName>ESPOnline</AssemblyName>
+     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+     <UseIISExpress>true</UseIISExpress>
+     <FileUpgradeFlags>
+@@ -1256,6 +1256,7 @@
+     <Content Include="Enseignants\SuiviEvaluation.aspx" />
+     <Content Include="Enseignants\SuiviGroupe.aspx" />
+     <Content Include="Enseignants\Toeic_enseig.aspx" />
++    <Content Include="ESPOnline.csproj.user" />
+     <Content Include="Etudiants\absenceetud.aspx" />
+     <Content Include="Etudiants\Accueil.aspx" />
+     <Content Include="Etudiants\CCNA1.aspx" />
+@@ -3836,7 +3837,7 @@
+           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+         </WebProjectProperties>
+       </FlavorProperties>
+-      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
++      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
+     </VisualStudio>
+   </ProjectExtensions>
+   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+diff --git a/ESBOnline/Log.cs b/ESBOnline/Log.cs
+index 71d0b9e..97b2461 100644
+--- a/ESBOnline/Log.cs
++++ b/ESBOnline/Log.cs
+@@ -110,7 +110,7 @@ namespace ESPOnline
+ 
+                 //string cmdQuery = "select * from ESP_V_ENSEIGNANT WHERE  trim(ID_ENS) =regexp_replace(:ID_ENS, '[[:space:]]*','') and etat='A' and type_ens='P'";
+                 // or(   trim(ID_ENS) =regexp_replace('V-1139-15', '[[:space:]]*','') or trim(ID_ENS) =regexp_replace('V-1138-15', '[[:space:]]*','') or  trim(ID_ENS) =regexp_replace('V-1151-15', '[[:space:]]*','') or  trim(ID_ENS) =regexp_replace('V-1153-15', '[[:space:]]*','') or  trim(ID_ENS) =regexp_replace('V-1161-15', '[[:space:]]*','') or  trim(ID_ENS) =regexp_replace('V-88-07', '[[:space:]]*',''))
+-                string cmdQuery = "select * from ESP_ENSEIGNANT WHERE  trim(ID_ENS) =regexp_replace(:ID_ENS, '[[:space:]]*','')  and trim(pwd_ens) ='" + pwd + "' and etat='A' ";
++                string cmdQuery = "select * from ESP_ENSEIGNANT WHERE  trim(ID_ENS) =regexp_replace(:ID_ENS, '[[:space:]]*','')  and trim(pwd_ens) ='"+pwd+"' and etat='A' ";
+                 OracleCommand myCommand = new OracleCommand(cmdQuery, mySqlConnection);
+                 OracleParameter prmID_ENS = new OracleParameter(":ID_ENS", OracleDbType.Varchar2);
+                 prmID_ENS.Value = _ID_ENS;
+diff --git a/ESBOnline/Vacataire/Absenceensev.aspx b/ESBOnline/Vacataire/Absenceensev.aspx
+index d18512e..46d6f17 100644
+--- a/ESBOnline/Vacataire/Absenceensev.aspx
++++ b/ESBOnline/Vacataire/Absenceensev.aspx
+@@ -138,7 +138,7 @@
+                                                             AutoPostBack="True" 
+                                                             onselectedindexchanged="RadioButtonList3_SelectedIndexChanged"  >
+                                                             <asp:ListItem Value="1"  Selected="True"  >Semestre 1</asp:ListItem>
+-+                                                           <asp:ListItem Value="2" >Semestre 2</asp:ListItem>
++                                                            <asp:ListItem Value="2" >Semestre 2</asp:ListItem>
+                                                        
+                                                         </asp:RadioButtonList>
+                                                         <br />
+diff --git a/ESBOnline/bin/Oracle.DataAccess.dll b/ESBOnline/bin/Oracle.DataAccess.dll
+index a9c9984..403226f 100644
+Binary files a/ESBOnline/bin/Oracle.DataAccess.dll and b/ESBOnline/bin/Oracle.DataAccess.dll differ
+diff --git a/ESBOnline/bin/Oracle.ManagedDataAccess.dll b/ESBOnline/bin/Oracle.ManagedDataAccess.dll
+index c228b70..8cf6d1e 100644
+Binary files a/ESBOnline/bin/Oracle.ManagedDataAccess.dll and b/ESBOnline/bin/Oracle.ManagedDataAccess.dll differ
+diff --git a/ESBOnline/web.config b/ESBOnline/web.config
+index 4a8456a..a510115 100644
+--- a/ESBOnline/web.config
++++ b/ESBOnline/web.config
+@@ -15,33 +15,33 @@
+   </appSettings>
+   <connectionStrings>
+     <add name="ApplicationServices" connectionString="data source=.\SQLEXPRESS;Integrated Security=SSPI;AttachDBFilename=|DataDirectory|\aspnetdb.mdf;User Instance=true" providerName="System.Data.SqlClient" />
+-    <add name="DefaultConnectionString1" connectionString="DATA SOURCE=localhost:1521/orcl;PERSIST SECURITY INFO=True;USER ID=SCOESB03;PASSWORD=SCOESB03" providerName="Oracle.ManagedDataAccess.Client" />
+-    <add name="DefaultConnectionString" connectionString="DATA SOURCE=localhost:1521/orcl;PERSIST SECURITY INFO=True;USER ID=SCOESB03;PASSWORD=SCOESB03" providerName="Oracle.ManagedDataAccess.Client" />
++    <add name="DefaultConnectionString1" connectionString="DATA SOURCE=192.168.0.225:1521/BDESB10G;PERSIST SECURITY INFO=True;USER ID=SCOESB03;PASSWORD=Esp#hnrs#tbl21" providerName="Oracle.ManagedDataAccess.Client" />
++    <add name="DefaultConnectionString" connectionString="DATA SOURCE=192.168.0.225:1521/BDESB10G;PERSIST SECURITY INFO=True;USER ID=SCOESB03;PASSWORD=Esp#hnrs#tbl21" providerName="Oracle.ManagedDataAccess.Client" />
+    
+-    <add name="DefaultConnectionString" connectionString="DATA SOURCE=localhost:1521/orcl;PERSIST SECURITY INFO=True;USER ID=SCOESB03;PASSWORD=SCOESB03" providerName="Oracle.ManagedDataAccess.Client" />
++    <add name="DefaultConnectionString" connectionString="DATA SOURCE=192.168.0.225:1521/BDESB10G;PERSIST SECURITY INFO=True;USER ID=SCOESB03;PASSWORD=Esp#hnrs#tbl21" providerName="Oracle.ManagedDataAccess.Client" />
+     
+-    <add name="DefaultConnectionString2" connectionString="DATA SOURCE=localhost:1521/orcl;PERSIST SECURITY INFO=True;USER ID=SCOESB03;PASSWORD=SCOESB03" providerName="Oracle.ManagedDataAccess.Client" />
+-    <add name="ConnectionString" connectionString="DATA SOURCE=localhost:1521/orcl;PASSWORD=SCOESB03;PERSIST SECURITY INFO=True;USER ID=SCOESB03" providerName="Oracle.ManagedDataAccess.Client" />
+-    <!--<add name="ConnectionString2" connectionString="DATA SOURCE=192.168.0.77:1521/orcl;PASSWORD=admis1718;PERSIST SECURITY INFO=True;USER ID=admis_esb" providerName="Oracle.ManagedDataAccess.Client" />-->
+-    <add name="ConnectionString2" connectionString="DATA SOURCE=localhost:1521/orcl;PASSWORD=admis1718;PERSIST SECURITY INFO=True;USER ID=admis_esb" providerName="Oracle.ManagedDataAccess.Client" />
+-    <add name="Entities" connectionString="metadata=res://*/InscriptionModel.csdl|res://*/InscriptionModel.ssdl|res://*/InscriptionModel.msl;provider=Oracle.ManagedDataAccess.Client;provider connection string=&quot;DATA SOURCE=localhost:1521/orcl;PASSWORD=SCOESB03;PERSIST SECURITY INFO=True;USER ID=SCOESB03&quot;" providerName="System.Data.EntityClient" />
++    <add name="DefaultConnectionString2" connectionString="DATA SOURCE=192.168.0.225:1521/bdesb10g;PERSIST SECURITY INFO=True;USER ID=SCOESB03;PASSWORD=Esp#hnrs#tbl21" providerName="Oracle.ManagedDataAccess.Client" />
++    <add name="ConnectionString" connectionString="DATA SOURCE=192.168.0.225:1521/BDESB10G;PASSWORD=Esp#hnrs#tbl21;PERSIST SECURITY INFO=True;USER ID=SCOESB03" providerName="Oracle.ManagedDataAccess.Client" />
++    <!--<add name="ConnectionString2" connectionString="DATA SOURCE=192.168.0.77:1521/bdesb10g;PASSWORD=admis1718;PERSIST SECURITY INFO=True;USER ID=admis_esb" providerName="Oracle.ManagedDataAccess.Client" />-->
++    <add name="ConnectionString2" connectionString="DATA SOURCE=192.168.0.225:1521/bdesb10g;PASSWORD=admis1718;PERSIST SECURITY INFO=True;USER ID=admis_esb" providerName="Oracle.ManagedDataAccess.Client" />
++    <add name="Entities" connectionString="metadata=res://*/InscriptionModel.csdl|res://*/InscriptionModel.ssdl|res://*/InscriptionModel.msl;provider=Oracle.ManagedDataAccess.Client;provider connection string=&quot;DATA SOURCE=192.168.0.225:1521/BDESB10G;PASSWORD=Esp#hnrs#tbl21;PERSIST SECURITY INFO=True;USER ID=SCOESB03&quot;" providerName="System.Data.EntityClient" />
+ 
+     <!--<add name="moodle" connectionString="DATA SOURCE=172.16.20.15:3306/moodle;PERSIST SECURITY INFO=True;USER ID=esprit;PASSWORD=Esprit2022+" providerName="System.Data.SqlClient" />-->
+    <!--<add name="moodle" connectionString="DATA SOURCE=172.16.20.15:3306/moodle2;Initial Catalog=moodle2;USER ID=esprit;PASSWORD=Esprit2022+" providerName="MySql.Data.MySqlClient" />--><!--MySql.Data.MySqlClient-->
+     <!-- <add name="moodle2" connectionString="DATA SOURCE=172.16.20.15;Initial Catalog=moodle;PERSIST SECURITY INFO=True;USER ID=esprit;PASSWORD=Esprit2022+" providerName="System.Data.SqlClient" />-->
+     <!--<add name="MyConnectionString"  connectionString="Data Source=172.16.20.15; Initial Catalog=moodle2; User ID=esprit;Password=Esprit2022+" providerName="System.Data.SqlClient" />-->
+   
+-    <add name="session2" connectionString="metadata=res://*/session2.csdl|res://*/session2.ssdl|res://*/session2.msl;provider=Oracle.ManagedDataAccess.Client;provider connection string=&quot;DATA SOURCE=192.168.0.77:1521/orcl;PASSWORD=SCOESB03;PERSIST SECURITY INFO=True;USER ID=SCOESB03&quot;" providerName="System.Data.EntityClient" />
++    <add name="session2" connectionString="metadata=res://*/session2.csdl|res://*/session2.ssdl|res://*/session2.msl;provider=Oracle.ManagedDataAccess.Client;provider connection string=&quot;DATA SOURCE=192.168.0.77:1521/bdesb10g;PASSWORD=Esp#hnrs#tbl21;PERSIST SECURITY INFO=True;USER ID=SCOESB03&quot;" providerName="System.Data.EntityClient" />
+ 
+ 
+ 
+     <!--<add name="maha" connectionString="Data Source=192.168.0.218;Initial Catalog=ESPRIT_NAV_PROD;Persist Security Info=True;User ID=userdsi;Password=Dsi2017" providerName="System.Data.SqlClient" />-->
+     <add name="maha" connectionString="Data Source=192.168.0.147;Initial Catalog=ESPRIT_NAV_PROD;Persist Security Info=True;User ID=userdsi;Password=Dsi2017" providerName="System.Data.SqlClient" />
+ 
+-    <add name="Entities1" connectionString="metadata=res://*/Model1.csdl|res://*/Model1.ssdl|res://*/Model1.msl;provider=Oracle.DataAccess.Client;provider connection string=&quot;DATA SOURCE=localhost:1521/orcl;PASSWORD=admis1718;USER ID=admis_esb&quot;" providerName="System.Data.EntityClient" />
+-    <add name="ConnectionString3" connectionString="DATA SOURCE=localhost:1521/orcl ;PASSWORD=SCOESB03;USER ID=SCOESB03" providerName="Oracle.ManagedDataAccess.Client" />
+-    <add name="ConnectionString5" connectionString="DATA SOURCE=localhost:1521/orcl;PASSWORD=admis1718;PERSIST SECURITY INFO=True;USER ID=ADMIS_esb" providerName="Oracle.ManagedDataAccess.Client" />
+-   <add name="ConnectionString55" connectionString="DATA SOURCE=192.168.0.77:1521/orcl;PASSWORD=sco_admis1415;PERSIST SECURITY INFO=True;USER ID=sco_admis1415" providerName="Oracle.ManagedDataAccess.Client" />
++    <add name="Entities1" connectionString="metadata=res://*/Model1.csdl|res://*/Model1.ssdl|res://*/Model1.msl;provider=Oracle.DataAccess.Client;provider connection string=&quot;DATA SOURCE=192.168.0.225:1521/bdesb10g;PASSWORD=admis1718;USER ID=admis_esb&quot;" providerName="System.Data.EntityClient" />
++    <add name="ConnectionString3" connectionString="DATA SOURCE=192.168.0.225:1521/BDESB10G ;PASSWORD=Esp#hnrs#tbl21;USER ID=SCOESB03" providerName="Oracle.ManagedDataAccess.Client" />
++    <add name="ConnectionString5" connectionString="DATA SOURCE=192.168.0.225:1521/BDESB10G;PASSWORD=admis1718;PERSIST SECURITY INFO=True;USER ID=ADMIS_esb" providerName="Oracle.ManagedDataAccess.Client" />
++   <add name="ConnectionString55" connectionString="DATA SOURCE=192.168.0.77:1521/bdesb10g;PASSWORD=sco_admis1415;PERSIST SECURITY INFO=True;USER ID=sco_admis1415" providerName="Oracle.ManagedDataAccess.Client" />
+   </connectionStrings>
+   <system.webServer>
+     <modules runAllManagedModulesForAllRequests="true" />
+@@ -61,8 +61,16 @@
+       <add name="ReportViewerWebControlHandler" preCondition="integratedMode" verb="*" path="Reserved.ReportViewerWebControl.axd" type="Microsoft.Reporting.WebForms.HttpHandler, Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+       <add name="ChartImageHandler" preCondition="integratedMode" verb="GET,HEAD,POST" path="ChartImg.axd" type="System.Web.UI.DataVisualization.Charting.ChartHttpHandler, System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+     </handlers>
++
++    <security>
++      <requestFiltering>
++        <requestLimits maxAllowedContentLength="1073741824" />
++      </requestFiltering>
++    </security>
++
+   </system.webServer>
+   <system.web>
++    <httpRuntime maxRequestLength="1048576" />
+   <customErrors mode="Off"/>
+     <httpHandlers>
+       <add path="Telerik.Web.UI.DialogHandler.aspx" type="Telerik.Web.UI.DialogHandler" verb="*" validate="false" />
+diff --git a/Encadrement/bin/Debug/Oracle.ManagedDataAccess.dll b/Encadrement/bin/Debug/Oracle.ManagedDataAccess.dll
+index c228b70..26ce1ba 100644
+Binary files a/Encadrement/bin/Debug/Oracle.ManagedDataAccess.dll and b/Encadrement/bin/Debug/Oracle.ManagedDataAccess.dll differ
+diff --git a/Encadrement/bin/Release/Oracle.ManagedDataAccess.dll b/Encadrement/bin/Release/Oracle.ManagedDataAccess.dll
+deleted file mode 100644
+index c228b70..0000000
+Binary files a/Encadrement/bin/Release/Oracle.ManagedDataAccess.dll and /dev/null differ
+diff --git a/PlanEtude/bin/Debug/Oracle.ManagedDataAccess.dll b/PlanEtude/bin/Debug/Oracle.ManagedDataAccess.dll
+index c228b70..8cf6d1e 100644
+Binary files a/PlanEtude/bin/Debug/Oracle.ManagedDataAccess.dll and b/PlanEtude/bin/Debug/Oracle.ManagedDataAccess.dll differ
+diff --git a/PlanEtude/bin/Release/Oracle.ManagedDataAccess.dll b/PlanEtude/bin/Release/Oracle.ManagedDataAccess.dll
+deleted file mode 100644
+index c228b70..0000000
+Binary files a/PlanEtude/bin/Release/Oracle.ManagedDataAccess.dll and /dev/null differ
