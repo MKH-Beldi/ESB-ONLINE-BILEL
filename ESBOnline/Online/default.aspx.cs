@@ -864,14 +864,22 @@ namespace ESPOnline.Online
 
                 //    Response.Redirect("~/Finance/PHOTOESB.aspx");
                 //}
-                //if (TextBox5.Text == "masmoudi" && TextBox6.Text == "espritesb@18")
-                //{
-                //    Session["ID_ENS"] = TextBox1.Text.Trim();
-                //    Session["NOM_ENS"] = TextBox1.Text.Trim();
+                if (TextBox5.Text == "Arbi" && TextBox6.Text == "admin22")
+                {
+                    Session["ID_ENS"] = TextBox1.Text.Trim();
+                    Session["NOM_ENS"] = TextBox1.Text.Trim();
+                    Session["NOM_DECID"] = "admin";
+                    Response.Redirect("~/Administration/suiviabsence.aspx");
 
-                //    Response.Redirect("~/Administration/Absence.aspx");
+                }
+                if (TextBox5.Text == "Ibtissem" && TextBox6.Text == "admin_esb_22")
+                {
+                    Session["ID_ENS"] = TextBox1.Text.Trim();
+                    Session["NOM_ENS"] = TextBox1.Text.Trim();
+                    Session["NOM_DECID"] = "admin";
+                    Response.Redirect("~/Administration/suiviabsence.aspx");
 
-                //}
+                }
 
 
                 if (Log.Instance.loginD(injectionSQL.Sanitize(TextBox5.Text.Trim()), injectionSQL.Sanitize(TextBox6.Text.Trim())) != null)

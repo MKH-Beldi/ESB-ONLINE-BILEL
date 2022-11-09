@@ -110,7 +110,7 @@ namespace ESPOnline
 
                 //string cmdQuery = "select * from ESP_V_ENSEIGNANT WHERE  trim(ID_ENS) =regexp_replace(:ID_ENS, '[[:space:]]*','') and etat='A' and type_ens='P'";
                 // or(   trim(ID_ENS) =regexp_replace('V-1139-15', '[[:space:]]*','') or trim(ID_ENS) =regexp_replace('V-1138-15', '[[:space:]]*','') or  trim(ID_ENS) =regexp_replace('V-1151-15', '[[:space:]]*','') or  trim(ID_ENS) =regexp_replace('V-1153-15', '[[:space:]]*','') or  trim(ID_ENS) =regexp_replace('V-1161-15', '[[:space:]]*','') or  trim(ID_ENS) =regexp_replace('V-88-07', '[[:space:]]*',''))
-                string cmdQuery = "select * from ESP_ENSEIGNANT WHERE  trim(ID_ENS) =regexp_replace(:ID_ENS, '[[:space:]]*','') and etat='A' ";
+                string cmdQuery = "select * from ESP_ENSEIGNANT WHERE  trim(ID_ENS) =regexp_replace(:ID_ENS, '[[:space:]]*','')  and trim(pwd_ens) ='" + pwd + "' and etat='A' ";
                 OracleCommand myCommand = new OracleCommand(cmdQuery, mySqlConnection);
                 OracleParameter prmID_ENS = new OracleParameter(":ID_ENS", OracleDbType.Varchar2);
                 prmID_ENS.Value = _ID_ENS;
