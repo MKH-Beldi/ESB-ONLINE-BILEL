@@ -84,8 +84,6 @@ bld/
 #[Bb]in/
 [Oo]bj/
 !ESBOnline/DevOne/obj/
-ESBOnline/DevOne/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache	
-ESBOnline/DevOne/obj/Debug/DevOne.pdb	
 
 
 # Visual Studio 2015 cache/options directory
