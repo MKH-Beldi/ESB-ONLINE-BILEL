@@ -7,11 +7,15 @@ BLL/bin/Debug/DAL.dll.config
 BLL/bin/Release/BLL.dll
 BLL/bin/Release/DAL.dll
 BLL/bin/Release/DAL.dll.config
+BLL/bin/Release/Oracle.ManagedDataAccess.dll	
+
 
 ClassLibrary1/bin/Debug/ClassLibrary1.dll
 ClassLibrary1/bin/Debug/ClassLibrary1.dll.config
 ClassLibrary1/bin/Release/ClassLibrary1.dll
 ClassLibrary1/bin/Release/ClassLibrary1.dll.config
+ClassLibrary1/bin/Release/MySql.Data.dll	
+
 
 DAL/bin/Debug/DAL.dll
 DAL/bin/Debug/DAL.dll.config
@@ -21,9 +25,14 @@ DAL/bin/Release/DAL.dll.config
 Encadrement/bin/Debug/DAL.dll
 Encadrement/bin/Debug/DAL.dll.config
 Encadrement/bin/Debug/Encadrement.dll
+Encadrement/bin/Debug/Oracle.ManagedDataAccess.dll	
 Encadrement/bin/Release/DAL.dll
 Encadrement/bin/Release/DAL.dll.config
 Encadrement/bin/Release/Encadrement.dll
+Encadrement/bin/Release/Oracle.ManagedDataAccess.dll	
+
+
+
 
 ESBOnline/bin/PlanEtude.dll
 ESBOnline/bin/Encadrement.dll
@@ -36,15 +45,22 @@ ESBOnline/bin/ClassLibrary1.dll
 ESBOnline/bin/ClassLibrary1.dll.config
 ESBOnline/bin/DAL.dll
 ESBOnline/bin/DAL.dll.config
+ESBOnline/bin/Oracle.DataAccess.dll	
+ESBOnline/bin/Oracle.ManagedDataAccess.dll	
+
 
 PlanEtude/bin/Debug/DAL.dll
 PlanEtude/bin/Debug/DAL.dll.config
 PlanEtude/bin/Debug/Encadrement.dll
 PlanEtude/bin/Debug/PlanEtude.dll
+PlanEtude/bin/Debug/Oracle.ManagedDataAccess.dll	
 PlanEtude/bin/Release/DAL.dll
 PlanEtude/bin/Release/DAL.dll.config
 PlanEtude/bin/Release/Encadrement.dll
 PlanEtude/bin/Release/PlanEtude.dll
+PlanEtude/bin/Release/Oracle.ManagedDataAccess.dll	
+
+
 
 # User-specific files
 *.suo
@@ -68,6 +84,9 @@ bld/
 #[Bb]in/
 [Oo]bj/
 !ESBOnline/DevOne/obj/
+ESBOnline/DevOne/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache	
+ESBOnline/DevOne/obj/Debug/DevOne.pdb	
+
 
 # Visual Studio 2015 cache/options directory
 .vs/
