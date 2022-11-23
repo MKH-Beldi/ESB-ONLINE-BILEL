@@ -87,9 +87,10 @@
 
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
         ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" 
-        SelectCommand="      SELECT code_module,code_cl, (select DESIGNATION from ESP_MODULE
-         where code_module=t1.CODE_MODULE)AS Module ,( select distinct NB_HEURES from ESP_MODULE_PANIER_CLASSE_SAISO where 
-         annee_deb=(select max(annee_deb)  from societe ) and NB_HEURES is not null  and code_module=t1.CODE_MODULE) nb_heures,
+        SelectCommand="SELECT code_module,code_cl,
+ (select distinct ESP_MODULE_PANIER_CLASSE_SAISO.DESIGNATION_NEW from ESP_MODULE_PANIER_CLASSE_SAISO where code_module=t1.CODE_MODULE and ESP_MODULE_PANIER_CLASSE_SAISO.ANNEE_DEB=(select annee_deb from societe))AS Module ,
+ ( select distinct NB_HEURES from ESP_MODULE_PANIER_CLASSE_SAISO where 
+      annee_deb=(select max(annee_deb)  from societe ) and NB_HEURES is not null  and code_module=t1.CODE_MODULE and code_cl=t1.code_cl) nb_heures,
          (case  when Justification='O' then 'Absence justifiée' else 'Absence injustifiée' end)  Justification,
          semestre,count(t1.CODE_MODULE) nb_absence FROM ESP_ABSENCE_NEW t1, 
         societe t2 WHERE (ID_ET = :argidetud) and t1.annee_deb=(select max(annee_deb)  from societe)  

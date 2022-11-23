@@ -4,6 +4,7 @@
 BLL/bin/Debug/BLL.dll
 BLL/bin/Debug/DAL.dll
 BLL/bin/Debug/DAL.dll.config
+
 BLL/bin/Release/BLL.dll
 BLL/bin/Release/DAL.dll
 BLL/bin/Release/DAL.dll.config
@@ -21,6 +22,7 @@ DAL/bin/Release/DAL.dll.config
 Encadrement/bin/Debug/DAL.dll
 Encadrement/bin/Debug/DAL.dll.config
 Encadrement/bin/Debug/Encadrement.dll
+
 Encadrement/bin/Release/DAL.dll
 Encadrement/bin/Release/DAL.dll.config
 Encadrement/bin/Release/Encadrement.dll
@@ -41,6 +43,7 @@ PlanEtude/bin/Debug/DAL.dll
 PlanEtude/bin/Debug/DAL.dll.config
 PlanEtude/bin/Debug/Encadrement.dll
 PlanEtude/bin/Debug/PlanEtude.dll
+
 PlanEtude/bin/Release/DAL.dll
 PlanEtude/bin/Release/DAL.dll.config
 PlanEtude/bin/Release/Encadrement.dll

@@ -70,7 +70,7 @@ namespace ESPOnline.Etudiants
             {
                 TableCell cellnbheures = e.Row.Cells[3];
                 TableCell cellnbabs = e.Row.Cells[4];
-                int quantity = int.Parse(cellnbheures.Text);
+                int quantity = int.Parse(cellnbheures.Text.Substring(0,2));
                 int qtnbh = int.Parse(cellnbabs.Text);
                 if (quantity==21 && qtnbh>3)
                 {

@@ -3674,7 +3674,6 @@
     <Folder Include="DevOne\App_Data\" />
     <Folder Include="DevOne\bin\" />
     <Folder Include="DevOne\obj\Debug\TempPE\" />
-    <Folder Include="DOC\" />
     <Folder Include="Parents\bootstrap-3.3.6-dist\" />
     <Folder Include="Parents\css\" />
   </ItemGroup>
@@ -3813,6 +3812,8 @@
     <Content Include="packages.config" />
     <Content Include="Parents\PaimentEnLigne.Master" />
     <Content Include="Vacataire\Vaca.Master" />
+    <Content Include="DOC\emploi.pdf" />
+    <None Include="Properties\PublishProfiles\IISProfile.pubxml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
