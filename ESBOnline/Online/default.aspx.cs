@@ -881,7 +881,18 @@ namespace ESPOnline.Online
 
                 }
 
+                if (Log.Instance.loginRole3(injectionSQL.Sanitize(TextBox5.Text.Trim()), injectionSQL.Sanitize(TextBox6.Text.Trim())) != null)
+                //  if (TextBox5.Text == "admission" && TextBox6.Text == "esb@@2022*")
+                {
+                    Log decid = Log.Instance.loginRole3(TextBox5.Text.Trim(), TextBox6.Text.Trim());
+                    Session["ID_DECID"] = decid.ID_DECID;
+                    Session["NOM_DECID"] = decid.NOM_DECID;
+                    Session["PWD_DECID"] = decid.PWD_DECID;
+                    Response.Redirect("~/Administration/suiviabsence.aspx");
+                    //Response.Redirect("~/Administration/Accueil.aspx");
 
+                }
+                else
                 if (Log.Instance.loginD(injectionSQL.Sanitize(TextBox5.Text.Trim()), injectionSQL.Sanitize(TextBox6.Text.Trim())) != null)
               //  if (TextBox5.Text == "admission" && TextBox6.Text == "esb@@2022*")
                 {

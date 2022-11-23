@@ -189,6 +189,51 @@ namespace ESPOnline
             }
         }
 
+        ///////////
+        public Log loginRole3(string _ID_DECID, string _PWD_DECID)
+        {
+            Log DEC = null;
+
+
+
+            using (OracleConnection mySqlConnection = new OracleConnection(AppConfiguration.ConnectionString))
+            {
+                mySqlConnection.Open();
+
+                //string cmdQuery = "select * from DECID WHERE  ID_DECID ='" + _ID_DECID + "' and PWD_DECID='" + _PWD_DECID + "'";
+                string cmdQuery = "select * from DECID WHERE  (ID_DECID =:ID_DECID ) and( PWD_DECID=:PWD_DECID)  and ROLE_DECID='03' and ETAT_DECID='A'";
+
+                OracleCommand myCommand = new OracleCommand(cmdQuery, mySqlConnection);
+
+                OracleParameter prmID_DECID = new OracleParameter(":ID_DECID", OracleDbType.Varchar2);
+                prmID_DECID.Value = _ID_DECID;
+                myCommand.Parameters.Add(prmID_DECID);
+                OracleParameter prmPWD_DECID = new OracleParameter(":PWD_DECID", OracleDbType.Varchar2);
+                prmPWD_DECID.Value = _PWD_DECID;
+                myCommand.Parameters.Add(prmPWD_DECID);
+                OracleDataReader MyReader = myCommand.ExecuteReader();
+                try
+                {
+                    while (MyReader.Read())
+                    {
+
+
+
+                        DEC = new Log(MyReader);
+                        break;
+
+                    }
+                }
+                finally
+                {
+                    MyReader.Close();
+                    mySqlConnection.Close();
+
+                }
+                return DEC;
+            }
+        }
+        ////////
 
         public Log loginD(string _ID_DECID, string _PWD_DECID)
         {
