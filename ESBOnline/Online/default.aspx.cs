@@ -869,6 +869,7 @@ namespace ESPOnline.Online
                     Session["ID_ENS"] = TextBox1.Text.Trim();
                     Session["NOM_ENS"] = TextBox1.Text.Trim();
                     Session["NOM_DECID"] = "admin";
+                    Session["ID_DECID"] = "admin";
                     Response.Redirect("~/Administration/suiviabsence.aspx");
 
                 }
@@ -877,6 +878,7 @@ namespace ESPOnline.Online
                     Session["ID_ENS"] = TextBox1.Text.Trim();
                     Session["NOM_ENS"] = TextBox1.Text.Trim();
                     Session["NOM_DECID"] = "admin";
+                    Session["ID_DECID"] = "admin";
                     Response.Redirect("~/Administration/suiviabsence.aspx");
 
                 }

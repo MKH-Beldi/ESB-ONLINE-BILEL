@@ -16,7 +16,7 @@ namespace ESPOnline.Enseignants
         serviceABS s = new serviceABS();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["ID_ENS"] == null)
+            if (Session["ID_DECID"] == null )
             {
                 Response.Redirect("~/Online/default.aspx");
             }
