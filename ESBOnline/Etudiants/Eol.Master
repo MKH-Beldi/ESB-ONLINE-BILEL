@@ -125,7 +125,7 @@
                                                 <%-- <li >
           <a href="evaluation2.aspx">Evaluation</a>
         </li>--%>
-<%--                                                <li class="dropdown">
+                                                <li class="dropdown">
                                                     <a href="#" class="navbar-brand" data-toggle="dropdown">Resultat<b class="caret"></b></a>
                                                     <ul class="dropdown-menu">
                                                         <li>
@@ -139,7 +139,7 @@
                                                         <li><a href="ResultatRattrapage2021.aspx">Resultat Rattrapage</a></li>
 
                                                     </ul>
-                                                    </li>--%>
+                                                    </li>
                                                     <li>
                                                         <a href="Transport_STAT.aspx">Ligne de transport</a>
                                                     </li>
