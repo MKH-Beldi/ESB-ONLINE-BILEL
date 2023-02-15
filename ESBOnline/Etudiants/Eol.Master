@@ -132,11 +132,11 @@
                                                            
 
                                                             <a href="Resultat2021.aspx">Note Principale</a></li>
-                                                        <li>
+                                                        <%--<li>
                                                             <a href="noterat2021.aspx">Note Rattrapage</a></li>
                                                         <li>
                                                             <a href="ResultatPrincipale2021.aspx">Resultat Principale</a></li>
-                                                        <li><a href="ResultatRattrapage2021.aspx">Resultat Rattrapage</a></li>
+                                                        <li><a href="ResultatRattrapage2021.aspx">Resultat Rattrapage</a></li>--%>
 
                                                     </ul>
                                                     </li>
