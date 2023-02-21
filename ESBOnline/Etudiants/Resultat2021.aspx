@@ -31,7 +31,7 @@
                     
                 <asp:Label ID="Label2" runat="server" Visible="true"><b>Moyenne générale: </asp:Label> <asp:Label ID="Label_mg" runat="server" Visible="true"></asp:Label></b>
                     <asp:GridView ID="GridView1" runat="server" 
-                AutoGenerateColumns="False"  visible="false"
+                AutoGenerateColumns="False"  visible="true"
                         CssClass="list-inline" BackColor="White" BorderColor="#CCCCCC" 
                         BorderStyle="None" BorderWidth="1px" CellPadding="3" 
                          >
