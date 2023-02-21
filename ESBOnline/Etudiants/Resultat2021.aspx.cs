@@ -72,7 +72,7 @@ namespace ESPOnline.Etudiants
             {
                 if (GridView1.Rows.Count == 0)
             {
-                    Response.Write("<script LANGUAGE='JavaScript'> alert('Aucune saisie n a été effectuée')</script>");
+                    //Response.Write("<script LANGUAGE='JavaScript'> alert('Aucune saisie n a été effectuée')</script>");
                      //Response.Write("<script LANGUAGE='JavaScript'> alert('L Accès est provisoirement suspendu suite au déroulement des conseils de classe')</script>");
 
                    
