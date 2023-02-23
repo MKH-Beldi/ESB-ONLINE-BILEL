@@ -137,8 +137,8 @@
                                                         <asp:RadioButtonList ID="RadioButtonList3" runat="server" RepeatDirection="Horizontal"
                                                             AutoPostBack="True" 
                                                             onselectedindexchanged="RadioButtonList3_SelectedIndexChanged"  >
-                                                            <asp:ListItem Value="1"  Selected="True"  >Semestre 1</asp:ListItem>
-                                                            <asp:ListItem Value="2" >Semestre 2</asp:ListItem>
+                                                           <%-- <asp:ListItem Value="1"    >Semestre 1</asp:ListItem>--%>
+                                                            <asp:ListItem Value="2" Selected="True" >Semestre 2</asp:ListItem>
                                                        
                                                         </asp:RadioButtonList>
                                                         <br />
