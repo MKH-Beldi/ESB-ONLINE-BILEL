@@ -254,24 +254,21 @@ t1.SPECIALITE_ESP_ET='08' then 'Master professionnel de management digital et sy
                           when t1.SPECIALITE_ESP_ET='28' then 'Master Professionnel en Gestion Actuarielle et Modélisation Mathématique'
                           when t1.SPECIALITE_ESP_ET='29' then 'Master Finance Digitale'
                           when t1.SPECIALITE_ESP_ET='30' then 'Licence Business Computing - International Class'
-                         
-end) SPECIALITE_ESP_ET ,T1.ID_ET,REPLACE(REPLACE(T1.dateentr,'-JUL-2019','/07/2019'),'-AUG-2019','/08/2019')  dateentr ,etab_origine, T1.TEL_ET,T1.NATIONALITE,
+                         when t1.SPECIALITE_ESP_ET='50' then 'Master professionnel  Business Analytics -Class  international'
+                          when t1.SPECIALITE_ESP_ET='51' then 'Master professionnel en Finance Digitale -Exécutive'
+end) SPECIALITE_ESP_ET ,T1.ID_ET,REPLACE(REPLACE(T1.dateentr,'02-AUG-2023','pas de date choisie'),'-AUG-2019','/08/2019')  dateentr ,etab_origine, T1.TEL_ET,T1.NATIONALITE,
                         (select note_candidat from moodle2022 where user2=substr(t1.ID_ET,7,4)and id_test='2467') as CULTURE_MOODLE,
                          (select note_candidat from moodle2022 where user2=substr(t1.ID_ET,7,4)and id_test='2466')as score_francais,
                         (select note_candidat from moodle2022 where user2=substr(t1.ID_ET,7,4)and id_test='2468')as score_qi,
                         (select note_candidat from moodle2022 where user2=substr(t1.ID_ET,7,4)and id_test='2465')as score_anglais,
-                        t1.DATE_DELIVRANCE,t1.DATE_NAIS_ET,t1.LIEU_NAIS_ET,t1.DATE_SAISIE,T1.SESSION_BAC FROM   ESP_ETUDIANT t1  WHERE   id_et like '22%' order by score_final  ">
+                        t1.DATE_DELIVRANCE,t1.DATE_NAIS_ET,t1.LIEU_NAIS_ET,t1.DATE_SAISIE,T1.SESSION_BAC FROM   ESP_ETUDIANT t1  WHERE   id_et like '23%'  order by score_final  ">
 
-        
-      
-     
-   
-   
+
    </asp:sqldatasource><br />
    <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
                         ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" 
                         ProviderName="<%$ ConnectionStrings:ConnectionString2.ProviderName %>" 
-                        SelectCommand="select count(*) from esp_etudiant where id_et LIKE '22%' "></asp:SqlDataSource>
+                        SelectCommand="select count(*) from esp_etudiant where id_et LIKE '23%' "></asp:SqlDataSource>
    </center>
          
     
@@ -498,9 +495,11 @@ SPECIALITE_ESP_ET='08' then 'Master professionnel de management digital et syst�
                           when SPECIALITE_ESP_ET='28' then 'Master Professionnel en Gestion Actuarielle et Modélisation Mathématique'
                           when SPECIALITE_ESP_ET='29' then 'Master Finance Digitale'
                           when SPECIALITE_ESP_ET='30' then 'Licence Business Computing - International Class'
+         when SPECIALITE_ESP_ET='50' then 'Master professionnel  Business Analytics -Class  international'
+                          when SPECIALITE_ESP_ET='51' then 'Master professionnel en Finance Digitale -Exécutive'
         
           
-end) SPECIALITE_ESP_ET ,replace(replace (replace(dateentr,'-AUG-2019','/08/2019'),'-JUL-2019','/07/2019'),'-SEP-2019','/09/2019')dateentr,(case when OBSERVATION_ET is null then '-' when OBSERVATION_ET is not null then OBSERVATION_ET end )OBSERVATION_ET,
+end) SPECIALITE_ESP_ET ,replace(replace (replace(dateentr,'02-AUG-2023','pas de date choisie'),'-JUL-2019','/07/2019'),'-SEP-2019','/09/2019')dateentr,(case when OBSERVATION_ET is null then '-' when OBSERVATION_ET is not null then OBSERVATION_ET end )OBSERVATION_ET,
 (case when NATURE_COURS is null then '-' when NATURE_COURS is not null then NATURE_COURS end )NATURE_COURS,
 (case when ID_ENS_ENTRETIEN is null then '-' when ID_ENS_ENTRETIEN is not null then ID_ENS_ENTRETIEN end )ID_ENS_ENTRETIEN,
 (case when OBSERVATION_ENTRETIEN is null then '-' when OBSERVATION_ENTRETIEN is not null then OBSERVATION_ENTRETIEN end )OBSERVATION_ENTRETIEN,
@@ -513,7 +512,7 @@ end) SPECIALITE_ESP_ET ,replace(replace (replace(dateentr,'-AUG-2019','/08/2019'
 (select note_candidat from moodle2022 where user2=substr(ID_ET,7,4)and id_test='2467') as CULTURE_MOODLE,
 SCORE_ENTRETIEN,
 (select score_final from score_final_2022 where id_et=esp_etudiant.ID_ET  )SCORE_FINAL ,date_addmission
-from esp_etudiant WHERE (ID_ET LIKE '22%')order by score_final 
+from esp_etudiant WHERE (ID_ET LIKE '23%' )order by score_final 
 
 ">
 

@@ -239,8 +239,23 @@ namespace ESPOnline.Administration.admission
                     dataItem.Font.Bold = true;
                 }
 
+                if ((myCell2.Text == "50"))
+                {
+                    myCell2.Text = "Master professionnel  Business Analytics -Class  international";
+                    //dataItem.BackColor = System.Drawing.Color.Red;  
+                    myCell2.ForeColor = System.Drawing.Color.Blue;
+                    dataItem.Font.Bold = true;
+                }
+                if ((myCell2.Text == "51"))
+                {
+                    myCell2.Text = "Master professionnel en Finance Digitale -Exécutive";
+                    //dataItem.BackColor = System.Drawing.Color.Red;  
+                    myCell2.ForeColor = System.Drawing.Color.Blue;
+                    dataItem.Font.Bold = true;
+                }
 
-             
+
+
             }
 
         }
