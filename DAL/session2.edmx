@@ -195,7 +195,7 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="session2" ZoomLevel="21">
+      <Diagram Name="session2" ZoomLevel="17">
         <EntityTypeShape EntityType="Model1.ESP_ETUDIANT_ENREG" Width="2.25" PointX="0.75" PointY="0.75" Height="23.614848632812503" IsExpanded="true" />
         <EntityTypeShape EntityType="Model1.ESP_TEMP_ETUDIANT_ENREG" Width="2.25" PointX="3.875" PointY="0.875" Height="1.5923063151041665" />
       </Diagram>
