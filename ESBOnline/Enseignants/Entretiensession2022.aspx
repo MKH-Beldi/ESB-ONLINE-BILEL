@@ -623,7 +623,7 @@ where  id_et=:ID_ET
                         <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>"
                             ProviderName="<%$ ConnectionStrings:ConnectionString2.ProviderName %>" SelectCommand="SELECT 
                             trim(NOM_ET)||'  '||trim(PNOM_ET)||'  '||trim(NUM_CIN_PASSEPORT)|| '  '||trim(id_et) cc, ID_ET 
-                            FROM ESP_ETUDIANT WHERE (score_entretien is null   ) and TRIM(ID_ET) LIKE '22%'  ">
+                            FROM ESP_ETUDIANT WHERE (score_entretien is null   ) and TRIM(ID_ET) LIKE '23%'  ">
                         </asp:SqlDataSource>
                         <br />
                         <br />
