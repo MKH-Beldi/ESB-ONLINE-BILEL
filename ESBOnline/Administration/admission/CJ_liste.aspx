@@ -5,10 +5,7 @@ CodeBehind="CJ_liste.aspx.cs" Inherits="ESPOnline.Administration.admission.CJ_li
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server"> 
- 
-     
-              <center><asp:Label ID="Label2" runat="server" Text="Nombre de candidats inscrits à ce jour :">   <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label></asp:Label></center>
-     
+ <center><asp:Label ID="Label2" runat="server" Text="Nombre de candidats inscrits à ce jour :">   <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label></asp:Label></center>
     <br />
   <center>    <asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="~/images/Excel_XLSX.png"
             OnClick="ImageButton_Click" AlternateText="ExcelML" Height="45px" 

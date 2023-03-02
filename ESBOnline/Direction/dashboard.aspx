@@ -48,7 +48,7 @@
         ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" 
         ProviderName="<%$ ConnectionStrings:ConnectionString2.ProviderName %>" 
         
-   SelectCommand="select ID_ET,NOM_ET,PNOM_ET,E_MAIL_ET from esp_etudiant  where ID_ET like'22%T%' and CODE_DECISION='01'
+   SelectCommand="select ID_ET,NOM_ET,PNOM_ET,E_MAIL_ET from esp_etudiant  where ID_ET like'23%T%' and CODE_DECISION='01'
 and SPECIALITE_ESP_ET in ('18','20','23','30') and (NIVEAU_ACCES='1'or NIVEAU_ACCES='3' or NIVEAU_ACCES='4') and ENVOI_MAIL is null ">
    </asp:sqldatasource>
 
@@ -84,7 +84,7 @@ and SPECIALITE_ESP_ET in ('18','20','23','30') and (NIVEAU_ACCES='1'or NIVEAU_AC
         ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" 
         ProviderName="<%$ ConnectionStrings:ConnectionString2.ProviderName %>" 
         
-   SelectCommand="select ID_ET,NOM_ET,PNOM_ET,E_MAIL_ET from esp_etudiant  where ID_ET like'22%T%' and CODE_DECISION='01' 
+   SelectCommand="select ID_ET,NOM_ET,PNOM_ET,E_MAIL_ET from esp_etudiant  where ID_ET like'23%T%' and CODE_DECISION='01' 
 and SPECIALITE_ESP_ET in ('18','20','23','30') and NIVEAU_ACCES='2' and ENVOI_MAIL is null">
    </asp:sqldatasource>
 
@@ -119,8 +119,8 @@ and SPECIALITE_ESP_ET in ('18','20','23','30') and NIVEAU_ACCES='2' and ENVOI_MA
         ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" 
         ProviderName="<%$ ConnectionStrings:ConnectionString2.ProviderName %>" 
         
-   SelectCommand="select ID_ET,NOM_ET,PNOM_ET,E_MAIL_ET from esp_etudiant  where ID_ET like'22%T%' and CODE_DECISION='01' 
-and SPECIALITE_ESP_ET in ('08','09','11','12','28','24','25','26','29') and NIVEAU_ACCES='4' and ENVOI_MAIL is null">
+   SelectCommand="select ID_ET,NOM_ET,PNOM_ET,E_MAIL_ET from esp_etudiant  where ID_ET like'23%T%' and CODE_DECISION='01' 
+and SPECIALITE_ESP_ET in ('08','09','11','12','28','24','25','26','29','50','51') and NIVEAU_ACCES='4' and ENVOI_MAIL is null">
    </asp:sqldatasource>
 
     <asp:Button ID="Button9" runat="server" Text="envoyer master niv 4" OnClick="Button3_Click2"  Visible="false" />
@@ -157,7 +157,7 @@ and SPECIALITE_ESP_ET in ('08','09','11','12','28','24','25','26','29') and NIVE
         ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" 
         ProviderName="<%$ ConnectionStrings:ConnectionString2.ProviderName %>" 
         
-   SelectCommand="select ID_ET,NOM_ET,PNOM_ET,E_MAIL_ET from esp_etudiant  where ID_ET like'22%T%' and CODE_DECISION='01' 
+   SelectCommand="select ID_ET,NOM_ET,PNOM_ET,E_MAIL_ET from esp_etudiant  where ID_ET like'23%T%' and CODE_DECISION='01' 
 and SPECIALITE_ESP_ET = '27' and NIVEAU_ACCES='4' and ENVOI_MAIL is null">
    </asp:sqldatasource>
 
@@ -194,7 +194,7 @@ and SPECIALITE_ESP_ET = '27' and NIVEAU_ACCES='4' and ENVOI_MAIL is null">
         ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" 
         ProviderName="<%$ ConnectionStrings:ConnectionString2.ProviderName %>" 
         
-   SelectCommand="select ID_ET,NOM_ET,PNOM_ET,E_MAIL_ET from esp_etudiant  where ID_ET like'22%E%' and CODE_DECISION='01' and ENVOI_MAIL is null">
+   SelectCommand="select ID_ET,NOM_ET,PNOM_ET,E_MAIL_ET from esp_etudiant  where ID_ET like'23%E%' and CODE_DECISION='01' and ENVOI_MAIL is null">
    </asp:sqldatasource>
 
     <asp:Button ID="Button11" runat="server" Text="envoyer internationaux" OnClick="Button5_Click"  Visible="false"/>
@@ -230,7 +230,7 @@ and SPECIALITE_ESP_ET = '27' and NIVEAU_ACCES='4' and ENVOI_MAIL is null">
         ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" 
         ProviderName="<%$ ConnectionStrings:ConnectionString2.ProviderName %>" 
         
-   SelectCommand="select ID_ET,NOM_ET,PNOM_ET,E_MAIL_ET from esp_etudiant  where ID_ET like'22%' and CODE_DECISION='03' and ENVOI_MAIL is null">
+   SelectCommand="select ID_ET,NOM_ET,PNOM_ET,E_MAIL_ET from esp_etudiant  where ID_ET like'23%' and CODE_DECISION='03' and ENVOI_MAIL is null">
    </asp:sqldatasource>
 
     <asp:Button ID="Button12" runat="server" Text="Refus" OnClick="Button6_Click"   Visible="false"/>

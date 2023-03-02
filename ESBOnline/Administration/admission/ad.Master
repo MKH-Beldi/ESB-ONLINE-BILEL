@@ -131,7 +131,7 @@
             </td>
             <td class="style2" align="center">
     <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="XX-Large" ForeColor="#CC0000"
-        Height="35px" Style="text-align: center" Text="2021/2022" 
+        Height="35px" Style="text-align: center" Text="2023/2024" 
         Width="724px"></asp:Label>
             </td>
             <td class="style5" align="center">

@@ -179,7 +179,7 @@
     <asp:Image ID="Image1" runat="server" Height="67px" ImageUrl="../Contents/Img/logo-esb.png"
         Width="146px" />
     <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="XX-Large" ForeColor="#CC0000"
-        Height="50px" Style="text-align: center" Text="AU: 2022/2023" Width="928px"></asp:Label>
+        Height="50px" Style="text-align: center" Text="AU: 2023/2024" Width="928px"></asp:Label>
     <asp:LinkButton ID="LinkButton2" runat="server" CssClass="btn-link" OnClick="LinkButton1_Click">Se déconnecter</asp:LinkButton>
     <%-- <div class="text-left ">
               
