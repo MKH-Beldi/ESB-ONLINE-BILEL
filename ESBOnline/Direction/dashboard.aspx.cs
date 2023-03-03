@@ -97,7 +97,7 @@ namespace ESPOnline.Direction
         {
             OracleConnection con = new OracleConnection("DATA SOURCE= 192.168.0.225:1521/bdesb10g;PERSIST SECURITY INFO=True;USER ID=admis_esb;PASSWORD=New#Admiesb$23");
             ////   Response.Redirect("https://esprit-tn.com/ESBOnline/Direction/testMysql.aspx");
-          //  cmd = new MySqlCommand("sELeCt quiz as id_test ,name as name_test ,substr(email, 1, 4) as user, a.sumgrades as note_candidat fRoM mdl_quiz_attempts a, mdl_user, mdl_quiz wHerE mdl_user.id = a.userid and a.quiz = mdl_quiz.id and quiz in (2465, 2466, 2467, 2468)", moodle_test.getconnection());
+            //cmd = new MySqlCommand("sELeCt quiz as id_test ,name as name_test ,substr(email, 1, 4) as user, a.sumgrades as note_candidat fRoM mdl_quiz_attempts a, mdl_user, mdl_quiz wHerE mdl_user.id = a.userid and a.quiz = mdl_quiz.id and quiz in (2465, 2466, 2467, 2468)", moodle_test.getconnection());
             //   sELeCt* fRoM *wHerE OWNER = 'NAME_OF_DB'
               cmd = new MySqlCommand("sELeCt quiz as id_test ,name as name_test ,substr(email, 6, 4) as user, a.sumgrades as note_candidat fRoM mdl_quiz_attempts a, mdl_user, mdl_quiz wHerE mdl_user.id = a.userid and a.quiz = mdl_quiz.id and quiz in (2473, 2470, 2471, 2472)", moodle_test.getconnection());
 

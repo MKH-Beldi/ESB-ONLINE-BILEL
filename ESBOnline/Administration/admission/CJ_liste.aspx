@@ -224,9 +224,9 @@ CodeBehind="CJ_liste.aspx.cs" Inherits="ESPOnline.Administration.admission.CJ_li
 then 'ECONOMIE' when NATURE_BAC='04' then 'TECHNIQUE'  when NATURE_BAC='35' then 'INFO' end)NATURE_BAC,T1.SCORE_ENTRETIEN,
                         (select score_final from score_final_2022 where id_et=t1.ID_ET ) as score_final,
                         (select score_dossier from esp_score_dossier where id_et=t1.ID_ET )as score_dossier,
-                        (select note_candidat from moodle2022 where user2=substr(t1.ID_ET,7,4)and id_test='2466')as score_francais,
-                        (select note_candidat from moodle2022 where user2=substr(t1.ID_ET,7,4)and id_test='2468')as score_qi,
-                        (select note_candidat from moodle2022 where user2=substr(t1.ID_ET,7,4)and id_test='2465')as score_anglais,
+                        (select note_candidat from moodle2022 where user2=substr(t1.ID_ET,7,4)and id_test='2470')as score_francais,
+                        (select note_candidat from moodle2022 where user2=substr(t1.ID_ET,7,4)and id_test='2473')as score_qi,
+                        (select note_candidat from moodle2022 where user2=substr(t1.ID_ET,7,4)and id_test='2471')as score_anglais,
                         T1.ANNEE_BAC,T1.MOY_BAC_ET,T1.NIVEAU_ACCES,T1.DIPLOME_SUP_ET,T1.E_MAIL_ET,(case when t1.SPECIALITE_ESP_ET='05' then 'TIC' when t1.SPECIALITE_ESP_ET='04' then 'EM' when t1.SPECIALITE_ESP_ET='03' then 'GC'  
 
 when t1.SPECIALITE_ESP_ET='01' then 'INFO' when t1.SPECIALITE_ESP_ET='02' then 'TELECOM'   when t1.SPECIALITE_ESP_ET='06' then 'Licence en sciences de gestion Parcours Management'  when t1.SPECIALITE_ESP_ET='07'  then 'Licence en sciences de gestion Parcours comptabilité'   when 
@@ -254,10 +254,10 @@ t1.SPECIALITE_ESP_ET='08' then 'Master professionnel de management digital et sy
                          when t1.SPECIALITE_ESP_ET='50' then 'Master professionnel  Business Analytics -Class  international'
                           when t1.SPECIALITE_ESP_ET='51' then 'Master professionnel en Finance Digitale -Exécutive'
 end) SPECIALITE_ESP_ET ,T1.ID_ET,REPLACE(REPLACE(T1.dateentr,'02-AUG-2023','pas de date choisie'),'-AUG-2019','/08/2019')  dateentr ,etab_origine, T1.TEL_ET,T1.NATIONALITE,
-                        (select note_candidat from moodle2022 where user2=substr(t1.ID_ET,7,4)and id_test='2467') as CULTURE_MOODLE,
-                         (select note_candidat from moodle2022 where user2=substr(t1.ID_ET,7,4)and id_test='2466')as score_francais,
-                        (select note_candidat from moodle2022 where user2=substr(t1.ID_ET,7,4)and id_test='2468')as score_qi,
-                        (select note_candidat from moodle2022 where user2=substr(t1.ID_ET,7,4)and id_test='2465')as score_anglais,
+                        (select note_candidat from moodle2022 where user2=substr(t1.ID_ET,7,4)and id_test='2472') as CULTURE_MOODLE,
+                         (select note_candidat from moodle2022 where user2=substr(t1.ID_ET,7,4)and id_test='2470')as score_francais,
+                        (select note_candidat from moodle2022 where user2=substr(t1.ID_ET,7,4)and id_test='2473')as score_qi,
+                        (select note_candidat from moodle2022 where user2=substr(t1.ID_ET,7,4)and id_test='2471')as score_anglais,
                         t1.DATE_DELIVRANCE,t1.DATE_NAIS_ET,t1.LIEU_NAIS_ET,t1.DATE_SAISIE,T1.SESSION_BAC FROM   ESP_ETUDIANT t1  WHERE   id_et like '23%'  order by score_final  ">
 
 
@@ -503,10 +503,10 @@ end) SPECIALITE_ESP_ET ,replace(replace (replace(dateentr,'02-AUG-2023','pas de 
 (case when NUM_SESSION is null then '-' when NUM_SESSION is not null then NUM_SESSION end ) NUM_SESSION,
 (case when CYCLE_ET is null then '-' when CYCLE_ET is not null then CYCLE_ET end )CYCLE_ET,
 (select score_dossier from esp_score_dossier where id_et=esp_etudiant.ID_ET ) as SCORE_DOSSIER,
-(select note_candidat from moodle2022 where user2=substr(ID_ET,7,4)and id_test='2466')as score_francais,
-(select note_candidat from moodle2022 where user2=substr(ID_ET,7,4)and id_test='2465')as SCORE_ANGLAIS,
-(select note_candidat from moodle2022 where user2=substr(ID_ET,7,4)and id_test='2468')as SCORE_QI,
-(select note_candidat from moodle2022 where user2=substr(ID_ET,7,4)and id_test='2467') as CULTURE_MOODLE,
+(select note_candidat from moodle2022 where user2=substr(ID_ET,7,4)and id_test='2470')as score_francais,
+(select note_candidat from moodle2022 where user2=substr(ID_ET,7,4)and id_test='2471')as SCORE_ANGLAIS,
+(select note_candidat from moodle2022 where user2=substr(ID_ET,7,4)and id_test='2473')as SCORE_QI,
+(select note_candidat from moodle2022 where user2=substr(ID_ET,7,4)and id_test='2472') as CULTURE_MOODLE,
 SCORE_ENTRETIEN,
 (select score_final from score_final_2022 where id_et=esp_etudiant.ID_ET  )SCORE_FINAL ,date_addmission
 from esp_etudiant WHERE (ID_ET LIKE '23%' )order by score_final 
