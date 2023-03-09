@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.11.1\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props" Condition="Exists('packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.11.1\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -14,7 +15,7 @@
     <RootNamespace>ESBOnline</RootNamespace>
     <AssemblyName>ESBOnline</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <UseIISExpress>false</UseIISExpress>
+    <UseIISExpress>true</UseIISExpress>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
@@ -27,6 +28,10 @@
     <TargetFrameworkProfile />
     <UseGlobalApplicationHostFile />
     <Use64BitIISExpress />
+    <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
+    <DockerLaunchUrl>http://{ServiceIPAddress}</DockerLaunchUrl>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -1060,30 +1065,6 @@
     <Content Include="DayPilotProJavaScriptTrial_7.9.1418\demo\themes\scheduler_white.css" />
     <Content Include="DayPilotProJavaScriptTrial_7.9.1418\demo\themes\timetable_big.css" />
     <Content Include="DayPilotProJavaScriptTrial_7.9.1418\scripts\daypilot-all.min.js" />
-    <Content Include="DevOne\About.aspx" />
-    <Content Include="DevOne\Account\ChangePassword.aspx" />
-    <Content Include="DevOne\Account\ChangePasswordSuccess.aspx" />
-    <Content Include="DevOne\Account\Login.aspx" />
-    <Content Include="DevOne\Account\Register.aspx" />
-    <Content Include="DevOne\Default1.aspx" />
-    <Content Include="DevOne\DevOne.csproj" />
-    <Content Include="DevOne\DevOne.csproj.user" />
-    <Content Include="DevOne\Global.asax" />
-    <Content Include="DevOne\Images\MessageBox_close.png" />
-    <Content Include="DevOne\Images\MessageBox_error.png" />
-    <Content Include="DevOne\Images\MessageBox_error1.png" />
-    <Content Include="DevOne\Images\MessageBox_info.png" />
-    <Content Include="DevOne\Images\MessageBox_success.png" />
-    <Content Include="DevOne\Images\MessageBox_warning.png" />
-    <Content Include="DevOne\MessageBox.ascx" />
-    <Content Include="DevOne\obj\Debug\DevOne.csproj.FileListAbsolute.txt" />
-    <Content Include="DevOne\obj\Debug\DevOne.dll" />
-    <Content Include="DevOne\obj\Debug\DevOne.pdb" />
-    <Content Include="DevOne\Scripts\jquery-1.6.1-vsdoc.js" />
-    <Content Include="DevOne\Scripts\jquery-1.6.1.js" />
-    <Content Include="DevOne\Scripts\jquery-1.6.1.min.js" />
-    <Content Include="DevOne\Styles\MessageBox.css" />
-    <Content Include="DevOne\Styles\Site.css" />
     <Content Include="Direction\A.aspx" />
     <Content Include="Direction\ABEnseigModule.aspx" />
     <Content Include="Direction\absenceetudiant.aspx" />
@@ -1554,66 +1535,6 @@
     <Compile Include="AppConfiguration.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Classes.cs" />
-    <Compile Include="DevOne\About.aspx.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="DevOne\About.aspx.designer.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="DevOne\Account\ChangePassword.aspx.cs">
-      <DependentUpon>ChangePassword.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="DevOne\Account\ChangePassword.aspx.designer.cs">
-      <DependentUpon>ChangePassword.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="DevOne\Account\ChangePasswordSuccess.aspx.cs">
-      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="DevOne\Account\ChangePasswordSuccess.aspx.designer.cs">
-      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="DevOne\Account\Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="DevOne\Account\Login.aspx.designer.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="DevOne\Account\Register.aspx.cs">
-      <DependentUpon>Register.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="DevOne\Account\Register.aspx.designer.cs">
-      <DependentUpon>Register.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="DevOne\Default1.aspx.cs">
-      <DependentUpon>Default1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="DevOne\Default1.aspx.designer.cs">
-      <DependentUpon>Default1.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="DevOne\Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="DevOne\MessageBox.ascx.cs">
-      <DependentUpon>MessageBox.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="DevOne\MessageBox.ascx.designer.cs">
-      <DependentUpon>MessageBox.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="DevOne\Properties\AssemblyInfo.cs" />
-    <Compile Include="DevOne\Site.Master.cs">
-      <DependentUpon>Site.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="DevOne\Site.Master.designer.cs">
-      <DependentUpon>Site.Master</DependentUpon>
-    </Compile>
     <Compile Include="Direction\A.aspx.cs">
       <DependentUpon>A.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3672,9 +3593,6 @@
   <ItemGroup>
     <Folder Include="Css-Template\listimage\Pictures\Status\" />
     <Folder Include="Customized MessageBox\Bin\" />
-    <Folder Include="DevOne\App_Data\" />
-    <Folder Include="DevOne\bin\" />
-    <Folder Include="DevOne\obj\Debug\TempPE\" />
     <Folder Include="Parents\bootstrap-3.3.6-dist\" />
     <Folder Include="Parents\css\" />
   </ItemGroup>
@@ -3720,6 +3638,9 @@
   <ItemGroup>
     <Content Include="Administration\Administration.Master" />
     <Content Include="Administration\admission\ad.Master" />
+    <None Include=".dockerignore">
+      <DependentUpon>Dockerfile</DependentUpon>
+    </None>
     <None Include="bootstrap\bootstrap-select.css.map" />
     <None Include="ClassDiagram1.cd" />
     <Content Include="Parents\Par.Master" />
@@ -3784,16 +3705,6 @@
     <None Include="Css-Template\listimage\Pictures\Slider\CVS\Root" />
     <Content Include="Customized MessageBox\Web.config" />
     <None Include="DayPilotProJavaScriptTrial_7.9.1418\documentation\LicenseAgreementTrial.pdf" />
-    <Content Include="DevOne\Account\Web.config" />
-    <None Include="DevOne\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <Content Include="DevOne\Site.Master" />
-    <Content Include="DevOne\Web.config" />
-    <Content Include="DevOne\Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="DevOne\Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
     <Content Include="EmploiEsp\Edt.Master" />
     <Content Include="EmploiEsp\Emploi.Master" />
     <Content Include="EmploiEsp\SiteEDT.Master" />
@@ -3814,6 +3725,7 @@
     <Content Include="Parents\PaimentEnLigne.Master" />
     <Content Include="Vacataire\Vaca.Master" />
     <Content Include="DOC\emploi.pdf" />
+    <None Include="Dockerfile" />
     <None Include="Properties\PublishProfiles\IISProfile.pubxml" />
   </ItemGroup>
   <PropertyGroup>
@@ -3831,16 +3743,24 @@
           <AutoAssignPort>False</AutoAssignPort>
           <DevelopmentServerPort>7325</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/ESBOnline</IISUrl>
+          <IISUrl>http://localhost:7325/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>http://localhost</CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
+      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
     </VisualStudio>
   </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.11.1\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.11.1\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props'))" />
+    <Error Condition="!Exists('packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.11.1\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.11.1\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets'))" />
+  </Target>
+  <Import Project="packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.11.1\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets" Condition="Exists('packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.11.1\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
