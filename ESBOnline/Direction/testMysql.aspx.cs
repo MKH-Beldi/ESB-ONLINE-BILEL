@@ -20,7 +20,7 @@ namespace ESPOnline.Direction
         private MySqlDataReader reader;
         private DataTable dt;
 
-        OracleConnection con = new OracleConnection("DATA SOURCE= 20.93.115.127:1521/bdesb23;PERSIST SECURITY INFO=True;USER ID=admis_esb;PASSWORD=admis1718");
+        OracleConnection con = new OracleConnection("DATA SOURCE= 10.0.0.5:1521/dbesb23;PERSIST SECURITY INFO=True;USER ID=admis_esb;PASSWORD=admis1718");
         protected void Page_Load(object sender, EventArgs e)
         {
 
