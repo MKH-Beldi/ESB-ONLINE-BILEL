@@ -28,12 +28,31 @@ RUN msbuild "ESBOnline\ESBOnline.csproj" /p:DeployOnBuild=true /p:PublishUrl="c:
 # start with new base image for running asp.net apps (which contains IIS)
 FROM mcr.microsoft.com/dotnet/framework/aspnet:4.8-windowsservercore-ltsc2019
 
-COPY ODAC122010Xcopy_x64.zip c:/install
-RUN powershell -Command "expand-archive -Path 'c:\install\ODAC122010Xcopy_x64.zip' -DestinationPath 'c:\install\oracleInstall'"
-WORKDIR c:/install/oracleInstall
+# enable IIS-ASPNET45 feature
+RUN dism /online /enable-feature /featurename:IIS-ASPNET45
+
+# set the working directory inside compilation container to c:\odac
+WORKDIR /odac
+
+# copy odac package
+COPY ODAC122010Xcopy_x64.zip .
+
+# unzip odac package
+RUN powershell -Command "expand-archive -Path 'c:\odac\ODAC122010Xcopy_x64.zip' -DestinationPath 'c:\install\oracleInstall'"
+
+# set the working directory inside compilation container to c:\install\oracleInstall
+WORKDIR /install/oracleInstall
+
+# install odac
 RUN ".\install.bat odp.net4 c:\oracle odac true;"
-WORKDIR c:/Oracle/ODP.NET/bin/4
+
+# set the working directory inside compilation container to c:\install\oracleInstall
+WORKDIR /Oracle/ODP.NET/bin/4
+
+# install odp for .NET
 RUN ./oraprovcfg.exe /action:config /product:odp /frameworkversion:v4.0.30319 /providerpath:C:\Oracle\ODP.NET\bin\4\Oracle.DataAccess.dll
+
+# set environment variable
 RUN "[Environment]::SetEnvironmentVariable(\"Path\", $env:Path + \";C:\\oracle\\\", [EnvironmentVariableTarget]::Machine)"
 
 # set default work folder to c:\inetpub\wwwroot (IIS root)
