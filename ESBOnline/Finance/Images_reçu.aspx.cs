@@ -51,7 +51,7 @@ namespace ESPOnline.images.Finance
                 string id_et = Request["id"];
                 if (id_et.StartsWith("16"))
                 {
-                    using (OracleConnection mySqlConnection = new OracleConnection("DATA SOURCE=192.168.0.225:1521/bdesb10g ;PERSIST SECURITY INFO=True;USER ID=SCO_admis1415;PASSWORD=SCO_admis1415"))
+                    using (OracleConnection mySqlConnection = new OracleConnection("DATA SOURCE=20.93.115.127:1521/bdesb23 ;PERSIST SECURITY INFO=True;USER ID=SCO_admis1415;PASSWORD=SCO_admis1415"))
                     {
                         mySqlConnection.Open();
 

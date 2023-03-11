@@ -46,7 +46,7 @@ namespace ESBOnline.Admin
         #endregion
         void  CreateImage(string id)
 {
-    using (OracleConnection mySqlConnection = new OracleConnection("DATA SOURCE=192.168.0.225:1521/bdesb10g ;PERSIST SECURITY INFO=True;USER ID=admis1718;PASSWORD=ADMIS_ESB"))
+    using (OracleConnection mySqlConnection = new OracleConnection("DATA SOURCE=20.93.115.127:1521/bdesb23 ;PERSIST SECURITY INFO=True;USER ID=admis1718;PASSWORD=ADMIS_ESB"))
             {
                 mySqlConnection.Open();
             

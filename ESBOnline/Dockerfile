@@ -26,10 +26,18 @@ COPY . .
 RUN msbuild "ESBOnline\ESBOnline.csproj" /p:DeployOnBuild=true /p:PublishUrl="c:\publish" /p:WebPublishMethod=FileSystem /p:DeployDefaultTarget=WebPublish
 
 # start with new base image for running asp.net apps (which contains IIS)
-FROM mcr.microsoft.com/dotnet/framework/aspnet:4.8 AS runtime
+FROM mcr.microsoft.com/dotnet/framework/aspnet:4.8-windowsservercore-ltsc2019
+
+COPY ODAC122010Xcopy_x64.zip c:/install
+RUN powershell -Command "expand-archive -Path 'c:\install\ODAC122010Xcopy_x64.zip' -DestinationPath 'c:\install\oracleInstall'"
+WORKDIR c:/install/oracleInstall
+RUN ".\install.bat odp.net4 c:\oracle odac true;"
+WORKDIR c:/Oracle/ODP.NET/bin/4
+RUN ./oraprovcfg.exe /action:config /product:odp /frameworkversion:v4.0.30319 /providerpath:C:\Oracle\ODP.NET\bin\4\Oracle.DataAccess.dll
+RUN "[Environment]::SetEnvironmentVariable(\"Path\", $env:Path + \";C:\\oracle\\\", [EnvironmentVariableTarget]::Machine)"
 
 # set default work folder to c:\inetpub\wwwroot (IIS root)
 WORKDIR /inetpub/wwwroot
 
 # copy files from bin/publish in our sdk container into c:\inetpub\wwwroot
-COPY --from=build /publish. ./
+COPY --from=build /publish/. ./

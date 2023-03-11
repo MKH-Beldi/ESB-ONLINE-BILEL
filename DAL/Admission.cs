@@ -12,8 +12,8 @@ namespace DAL
     public class Admission
     {
         #region sing
-        //OracleConnection mySqlConnection = new OracleConnection("DATA SOURCE= 192.168.0.225:1521/bdesb10g;PERSIST SECURITY INFO=True;USER ID=SCOESB03;PASSWORD=Esp#hnrs#tbl21");
-        //OracleConnection mySqlConnection2 = new OracleConnection("DATA SOURCE= 192.168.0.225:1521/bdesb10g;PERSIST SECURITY INFO=True;USER ID=admis_esb;PASSWORD=admis1718");
+        //OracleConnection mySqlConnection = new OracleConnection("DATA SOURCE= 20.93.115.127:1521/bdesb23;PERSIST SECURITY INFO=True;USER ID=SCOESB03;PASSWORD=Esp#hnrs#tbl21");
+        //OracleConnection mySqlConnection2 = new OracleConnection("DATA SOURCE= 20.93.115.127:1521/bdesb23;PERSIST SECURITY INFO=True;USER ID=admis_esb;PASSWORD=admis1718");
         OracleConnection mySqlConnection = new OracleConnection(AppConfiguration.ConnectionString2);
         OracleConnection mySqlConnection2 = new OracleConnection(AppConfiguration.myConnectionString);
         OracleTransaction myTrans;
